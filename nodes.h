@@ -27,6 +27,10 @@
 #ifndef NODES_H_
 #define NODES_H_
 
+#ifdef __APPLE__
+#include <sys/types.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
