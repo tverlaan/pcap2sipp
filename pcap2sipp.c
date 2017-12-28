@@ -1111,13 +1111,14 @@ int main(int argc, char **argv) {
 		};
 		if (remote_ip!=NULL){
 			if (remote_port!=0){
-				remote_ip_string=malloc(sizeof(char)*11);
+				// add 6 for colon and port
+				remote_ip_string=malloc(sizeof(char)*strlen(remote_ip)+6);
 				if (remote_ip_string == NULL){
 					fprintf (stderr, "Cannot allocate memory\n");
 					return 1;
 				}
 
-				sprintf(remote_ip_string," %s:%d",remote_ip,remote_port);
+				sprintf(remote_ip_string,"%s:%d",remote_ip,remote_port);
 			}
 			else{
 				remote_ip_string=malloc(sizeof(char)*(strlen(remote_ip)));
@@ -1126,7 +1127,7 @@ int main(int argc, char **argv) {
 					return 1;
 				}
 
-				sprintf(remote_ip_string," %s",remote_ip);
+				sprintf(remote_ip_string,"%s",remote_ip);
 			}
 		}else{
 			remote_ip_string=malloc(sizeof(char));
